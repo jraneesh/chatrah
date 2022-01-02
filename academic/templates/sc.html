@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Credits</title>
+<link rel="icon" href="/static/icon/logo.webp">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container-fluid justify-content-end">
+      <a class="navbar-brand" href="{% url 'profile' %}">Profile</a>
+      <a class="navbar-brand" href="{% url 'timetable' %}">Timetable</a>
+      <a class="navbar-brand" href="{% url 'notes' %}">Notes</a>
+  </div>
+</nav><br>
+<h3 class="display-3 container">Syllabus and Credits</h3><br>
+<div class="container">
+  {% for item in sc %}
+    <div class="row">
+      <p class="col">{{item.reg}} {{item.dept}} Syllabus and Credits link</p>
+      <div class="col"><a href="{{item.link}}" target="_blank" class="btn btn-primary">{{item.reg}} {{item.dept}}</a></div>
+    </div><br>
+  {% endfor %}
+</div>
+</body>
+</html>

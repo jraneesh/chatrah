@@ -1,0 +1,58 @@
+<!doctype HTML>
+<html>
+<head>
+<title>Profile |  Chatrah</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/css/styles.css">
+<link rel="icon" href="/static/icon/logo.webp">
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+  <h3 class="h3"> Chatrah</h3>
+  <div class="justify-content-end">
+    <a class="btn" href="/paper">Blog</a>
+    <a class="btn" href="{% url 'logout' %}">Logout</a>
+  </div>
+</nav>
+<div class="container">
+  <h1 class="display-2"> Welcome <strong id="name">{{ name }}</strong></h1>
+</div>
+<br><br>
+<div class="container table-responsive">
+<table class="table table-borderless">
+  <tbody>
+    <tr>
+      <td>Roll Number</td>
+      <td>{{number}}</td>
+    </tr>
+    <tr>
+      <td>Year of Admission</td>
+      <td>{{YoA}}</td>
+    </tr>
+    <tr>
+      <td>Present Year</td>
+      <td>{{year}}</td>
+    </tr>
+    <tr>
+      <td>Department</td>
+      <td>{{dept}}</td>
+    </tr>
+    <tr>
+      <td>Section</td>
+      <td>{{section}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<nav class="container navbar navbar-light">
+  <div class="justify-content-center row row-cols-2">
+    <a class="btn btn-outline-primary col" href="{% url 'dashboard' %}">Updates</a>
+    <a class="btn btn-outline-primary col" href="{% url 'credits' %}">Syllabus & Credits</a>
+    <a class="btn btn-outline-primary col" href="{% url 'timetable' %}">Timetables</a>
+    <a class="btn btn-outline-primary col" href="{% url 'notes' %}">Notes</a>
+    <a class="btn btn-outline-primary col" href="{% url 'grow' %}">Oppurtunities</a>
+    <a class="btn btn-outline-primary col" href="{% url 'resume-form' %}">Build Resume</a>
+    </div>
+</nav>
+</body>
+</html>

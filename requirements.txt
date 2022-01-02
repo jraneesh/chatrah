@@ -1,0 +1,5 @@
+django
+django-summernote
+django-otp
+django-admin-honeypot
+whitenoise

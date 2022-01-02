@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Updates</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+<link rel="icon" href="/static/icon/logo.webp">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'profile' %}">Profile</a>
+      {#<a class="navbar-brand" href="{% url 'classupdates' %}">Class Updates</a>#}
+  </div>
+</nav>
+<br><h4 class="display-4">Notifications and Updates</h4><br>
+<div class="container">
+    {% for item in dash %}
+    <div class="row">
+        <p><span class="h5">{{item.title }}</span> {{ item.time }}</p>
+        <p class="fs-6">{{ item.content | safe }}</p>
+    </div><br>
+    {% endfor %}
+</div>
+{% if dash.has_other_pages %}
+<nav>
+  <ul class="pagination justify-content-center">
+    {% if dash.has_previous %}
+    <li><a href="?page={{ dash.previous_page_number }}" class="btn btn-outline-info">&laquo; PREV </a></li>
+    {% endif %}
+    {% if dash.has_next %}
+    <li><a href="?page={{ dash.next_page_number }}" class="btn btn-outline-info"> NEXT &raquo;</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+</body>
+</html>

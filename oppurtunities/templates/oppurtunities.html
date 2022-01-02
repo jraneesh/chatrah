@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Paper</title>
+<link rel="icon" href="/static/icon/logo.webp">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'profile' %}">Profile</a>
+  </div>
+</nav>
+<div class="conatiner">
+    <h5 class="display-5 text-center"> Welcome to <strong> Opputunities Portal</strong></h5>
+</div>
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+            {% for post in oppurtunities_list %}
+            <div class="shadow-none card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">{{ post.title }} {{post.type}}</h3>
+                    <p class="card-text">{{ post.content| safe }}</p>
+                    <a href="{{post.link}}" class="btn btn-outline-primary">Read More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% if is_paginated %}
+  <nav aria-label="Page navigation conatiner"></nav>
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-info" style="font-family: sans-serif;">&laquo; PREV </a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-info" style="font-family: sans-serif;"> NEXT &raquo;</a></li>
+
+    {% endif %}
+  </ul>
+{% endif %}
+</body>
+</html>

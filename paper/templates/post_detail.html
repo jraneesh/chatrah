@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 left">
+      <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+      <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+      <div class="d-inline">
+        <button class="btn" id="tts"  onclick="tts()">Play</button>
+      </div>
+      <div id="content" class="card-body">{{ object.content | safe }}</div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function tts() {
+    let action = document.querySelector("#tts").innerHTML;
+    if(action == "Play") {
+      if ('speechSynthesis' in window) {
+        text = document.querySelector("#content").textContent;
+        var msg = new SpeechSynthesisUtterance(text);
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.getVoices();
+        window.speechSynthesis.speak(msg);
+      }else{
+        alert("Sorry, your browser doesn't support text to speech!");
+      }
+        document.querySelector("#tts").innerHTML = "Stop";
+    }else{
+      window.speechSynthesis.cancel();
+      document.querySelector("#tts").innerHTML = "Play";
+  }
+}
+</script>
+{% endblock content %}

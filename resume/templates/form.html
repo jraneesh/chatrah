@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" href="/static/icon/logo.webp">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'profile' %}">Profile</a>
+    </div>
+</nav>
+<h4 class="display-4 text-center">Resume Builder</h4><br>
+<form class="container" action="{% url 'resume-download' %}" method="POST" id="resumedata">
+    {% csrf_token %}
+    <div class="g-3 row">
+        <div class="col-md-6">
+          <label for="fnamebox" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="fnamebox" name="fnamebox" placeholder="John">
+        </div>
+        <div class="col-md-6">
+            <label for="lnamebox" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lnamebox" name="lnamebox" placeholder="Doe">
+          </div>
+        <div class="col-md-6">
+          <label for="emailbox" class="form-label">Email</label>
+          <input type="email" class="form-control" id="emailbox" name="emailbox" placeholder="youremail@gmail.com">
+        </div>
+        <div class="col-md-6">
+            <label for="phonebox" class="form-label">Phone</label>
+            <input type="number" class="form-control" id="phonebox" name="phonebox" maxlength="13" placeholder="+910000000000">
+        </div>
+        <div class="col-md-12">
+            <label for="skills" class="form-label">Skills</label>
+            <input type="textarea" class="form-control" id="skillsbox" name="skillsbox" placeholder="Seperate using comma(,)">
+        </div>
+    </div><hr>
+    <section id="projects">
+        <h6 class="display-6">Projects</h6>
+        <div class="input-group">
+                <div class="col-md-6">
+                    <label for="projectname1">Name</label>
+                    <input type="text" id="projectname1" name="projectname1" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label for="projecttype1">Project Type</label>
+                    <input type="text" id="projecttype1" name="projecttype1" class="form-control">
+                </div>
+                <div class="col-md-12">
+                    <label for="des1">Description</label>
+                    <textarea id="des1" name="des1" class="form-control" maxlength="200" rows="2"></textarea>
+                </div></div>
+            </div><br>
+        <div class="input-group">
+                <div class="col-md-6">
+                    <label for="projectname2">Name</label>
+                    <input type="text" id="projectname2" name="projectname2" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label for="projecttype2">Project Type</label>
+                    <input type="text" id="projecttype2" name="projecttype2" class="form-control">
+                </div>
+                <div class="col-md-12">
+                    <label for="des2">Description</label>
+                    <textarea class="form-control" id="des2" name="des2" maxlength="200" rows="2"></textarea>
+                </div>
+        </div>
+    </section><hr>
+    <section id="experience">
+        <h6 class="display-6">Experience</h6>
+        <div class="input-group">
+                <div class="col-md-6">
+                    <label for="expname1">Organization Name</label>
+                    <input type="text" id="expname1" name="expname1" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label for="exprole1">Organization Role</label>
+                    <input type="text" id="exprole1" name="exprole1" class="form-control">
+                </div>
+        </div><br>
+        <div class="input-group">
+                <div class="col-md-6">
+                    <label for="expname2">Organization Name</label>
+                    <input type="text" id="expname2" name="expname2" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label for="exprole2">Organization Role</label>
+                    <input type="text" id="exprole2" name="exprole2" class="form-control">
+                </div>
+        </div>
+    </section><hr>
+    <section id="education">
+        <h6 class="display-6">Education</h6>
+        <div class="input-group">
+            <div class="col-md-4">
+                <label for="eduname1">School Name</label>
+                <input type="text" id="eduname1" name="eduname1" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label for="edurole1">Course</label>
+                <input type="text" id="edurole1" name="edurole1" class="form-control" placeholder="B.Tech">
+            </div>
+            <div class="col-md-4">
+                <label for="eduyear1">Graduation Year</label>
+                <input type="number" id="eduyear1" name="eduyear1" class="form-control" maxlength="4">
+            </div>
+        </div><br>
+        <div class="input-group">
+            <div class="col-md-4">
+                <label for="eduname2">School Name</label>
+                <input type="text" id="eduname2" name="eduname2" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label for="edurole2">Course</label>
+                <input type="text" id="edurole2" name="edurole2" class="form-control" placeholder="Intermediate">
+            </div>
+            <div class="col-md-4">
+                <label for="eduyear2">Graduation Year</label>
+                <input type="number" id="eduyear2" name="eduyear2" class="form-control" maxlength="4">
+            </div>
+        </div><br>
+        <div class="input-group">
+            <div class="col-md-4">
+                <label for="eduname3">School Name</label>
+                <input type="text" id="eduname3" name="eduname3" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label for="edurole3">Course</label>
+                <input type="text" id="edurole3" name="edurole3" class="form-control" placeholder="10th Class">
+            </div>
+            <div class="col-md-4">
+                <label for="eduyear3">Graduation Year</label>
+                <input type="number" id="eduyear3" name="eduyear3" class="form-control" maxlength="4">
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <button type="submit" class="btn btn-primary btn-lg">Generate PDF</button>
+</br>
+</form>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{fnamebox}} {{lnamebox}}</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="../../static/css/styles.css">
+</head>
+<body>
+<nav class="navbar container">
+    <div class="container-fluid"></div>
+	    <h1 class="display-5">{{fnamebox}} {{lnamebox}}</h1>
+	</div>
+    <div class="justify-content-end">
+		<p><a href="mailto:{{emailbox}}">{{emailbox}}</a></p>
+		<p>{{phonebox}}</p>
+	</div>
+</nav>
+<div class="container">
+	<h2 class="display-6">Skills</h2>
+	    <p>{{skillsbox}}</p>
+</div><br>
+<div class="container">
+    <h2 class="display-6">Education</h2>
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">School</th>
+              <th scope="col">Course</th>
+              <th scope="col">Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>{{eduname1}}</td>
+              <td>{{edurole1}}</td>
+              <td>{{eduyear1}}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>{{eduname2}}</td>
+              <td>{{edurole2}}</td>
+              <td>{{eduyear2}}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>{{eduname3}}</td>
+              <td>{{edurole3}}</td>
+              <td>{{eduyear3}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div><br>
+<div class="container">
+    <h2 class="display-6">Experience</h2>
+        <div class="card-body">
+            <h6 class="h6">{{exprole1}} at {{expname1}}</h6>
+            <h6 class="h6">{{exprole2}} at {{expname2}}</h6>
+        </div>
+</div><br>
+<div class="container">
+    <h2 class="display-6">Projects</h2>
+    <div class="card-body">
+        <h6 class="h6">{{projectname1}} - A {{projecttype1}}</h6>
+        <p>{{des1}}</p>
+    </div>
+    <div class="card-body">
+        <h6 class="h6">{{projectname2}} - A {{projecttype2}}</h6>
+        <p>{{des2}}</p>
+    </div>
+</div>
+<script src="/static/js/print.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notes</title>
+<link rel="icon" href="/static/icon/logo.webp">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container-fluid justify-content-end">
+      <a class="navbar-brand" href="{% url 'profile' %}">Profile</a>
+      <a class="navbar-brand" href="{% url 'timetable' %}">Timetable</a>
+      <a class="navbar-brand" href="{% url 'notes' %}">Notes</a>
+  </div>
+</nav><br>
+<h3 class="display-3 container">Notes Links</h3><br>
+<div class="container">
+  {% for item in links %}
+    <div class="row">
+      <p class="col">{{item.title}}</p>
+      <div class="col"><a href="{{item.link}}" target="_blank" class="btn btn-primary">Link &#8599;</a></div>
+    </div><br>
+  {% endfor %}
+</div>
+{% if links.has_other_pages %}
+<nav>
+  <ul class="pagination justify-content-center">
+    {% if links.has_previous %}
+    <li><a href="?page={{ links.previous_page_number }}" class="btn btn-outline-info">&laquo; PREV </a></li>
+    {% endif %}
+    {% if links.has_next %}
+    <li><a href="?page={{ links.next_page_number }}" class="btn btn-outline-info"> NEXT &raquo;</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+</body>
+</html>
