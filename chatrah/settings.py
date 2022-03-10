@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'dashboard',
     'paper',
     'users',
-    'resume',
     'oppurtunities',
     'django_otp',
     'django_otp.plugins.otp_totp',
@@ -111,7 +110,12 @@ USE_TZ = True
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'cache',
+        'TIMEOUT': 60,
+        'OPTIONS': {
+            'MAX_ENTRIES': 4
+        }
     }
 }
 
