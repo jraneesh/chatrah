@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'dashboard',
     'paper',
     'users',
-    'oppurtunities',
+    'opportunities',
     'django_otp',
     'django_otp.plugins.otp_totp',
     'django_summernote',

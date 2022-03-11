@@ -1,6 +1,6 @@
 from django.db import models
 
-class oppurtunities(models.Model):
+class opportunities(models.Model):
     type = [
     (1,"Job Placement"),
     (2,"Internship"),

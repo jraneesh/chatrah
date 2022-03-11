@@ -13,7 +13,7 @@ urlpatterns = [
     path('paper/', include('paper.urls')),
     path('', include('users.urls')),
     #path('', include('pwa.urls')),
-    path('oppurtunities/', include('oppurtunities.urls')),
+    path('opportunities/', include('opportunities.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('academic/', include('academic.urls')),
     path('summernote/', include('django_summernote.urls')),

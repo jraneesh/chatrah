@@ -27,21 +27,29 @@ def signup(request):
 
 
 def loginstudent(request):
-    if request.method == "GET":
+    if request.method == "GET" and request.session._session_key is None:
         return render(request, "login.html", context=None)
-    _number = request.POST["number"]
-    _password = request.POST["pwd"]
-    user = authenticate(request, username=_number, password=_password)
-    if user is not None:
-        login(request, user)
-        return redirect("/profile")
+    elif request.session._session_key is not None:
+        key = request.session._session_key
+        if request.session.get(key) is None:
+            return redirect("/login")
+        else:
+            return redirect("/profile")
     else:
-        return HttpResponse("error")
+        _number = request.POST["number"]
+        _password = request.POST["pwd"]
+        user = authenticate(request, username=_number, password=_password)
+        if user is not None:
+            login(request, user)
+            return redirect("/profile")
+        else:
+            return HttpResponse("Username/Password Incorrect")
 
 @login_required
 def profile(request):
     userid = get_user(request)
-    #user = student.objects.raw("SELECT name, number, YoA, year, dept, section FROM users_student WHERE number=%s", [userid])
+    if userid is None:
+        return redirect("/login")
     user = student.objects.get(number=userid)
     years = dict(student.years)
     sections = dict(student.sections)
