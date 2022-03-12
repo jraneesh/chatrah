@@ -61,3 +61,8 @@ def logoutstudent(request):
     logout(request)
     return redirect("/login")
 
+def offline(request):
+    return render(request, "offline.html", context=None)
+
+def sw(request):
+    return render(request, 'serviceworker.js',context=None,content_type="application/javascript")

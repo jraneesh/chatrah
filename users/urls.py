@@ -7,5 +7,7 @@ urlpatterns = [
     path("signup", views.signup, name="signup"),
     path("login", views.loginstudent, name="login"),
     path("profile", views.profile, name="profile"),
-    path("logout", views.logoutstudent, name="logout")
+    path("logout", views.logoutstudent, name="logout"),
+    path("offline",views.offline,name="offline"),
+    path("serviceworker.js",views.sw,name="serviceworker.js")
 ]

@@ -1,0 +1,1 @@
+{ "name": "Chatrah", "short_name": "Chatrah", "description": "A Student Resource Portal", "start_url": "/login", "display": "standalone", "scope": "/", "orientation": "any", "background_color": "#ffffff", "theme_color": "#ffffff", "status_bar": "default", "icons": [{"src": "/static/icon/logo.webp", "sizes": "160x160"}], "dir": "ltr", "lang": "en-US" }
