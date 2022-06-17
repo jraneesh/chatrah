@@ -1,0 +1,29 @@
+<!doctype HTML>
+<html>
+<head>
+<title>Reason for Leave</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/css/styles.css">
+<link rel="icon" href="/static/icon/logo.webp">
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-light bg-light">
+  <h3 class="h3"> Chatrah</h3>
+  <a class="btn" href="{% url 'profile' %}">profile</a>
+  </nav>
+</header>
+<h1 class="fs-1 text-center">Reason for Leave</h1><br><br>
+<div class="container">
+  <form method="POST" action="{% url 'applyleave' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="msg">Reason</label>
+      <textarea class="form-control" id="msg" name="msg" rows="5"></textarea>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+  </div>
+</body>
+</html>

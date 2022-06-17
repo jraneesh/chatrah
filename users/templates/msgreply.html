@@ -1,0 +1,25 @@
+<!doctype HTML>
+<html>
+<head>
+<title>Profile |  Chatrah</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/css/styles.css">
+<link rel="icon" href="/static/icon/logo.webp">
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+  <h3 class="h3"> Chatrah</h3>
+</nav>
+<div class="container">
+  <h1 class="display-2">{{ msg }}</h1>
+</div>
+<br><br>
+</div>
+<nav class="container navbar navbar-light">
+  <div class="justify-content-center row row-cols-2">
+    <a class="btn btn-outline-primary col" href="{% url 'profile' %}">Profile</a>
+    <a class="btn btn-outline-primary col" href="{% url 'applyleave' %}">Apply for Leave</a>
+  </div>
+</nav>
+</body>
+</html>

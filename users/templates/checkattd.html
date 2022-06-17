@@ -1,0 +1,41 @@
+<!doctype HTML>
+<html>
+<head>
+<title>Profile |  Chatrah</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/css/styles.css">
+<link rel="icon" href="/static/icon/logo.webp">
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+  <h3 class="h3"> Chatrah</h3>
+  <div class="justify-content-end">
+    <a class="btn" href="{% url 'profile' %}">Profile</a>
+  </div>
+</nav>
+<div class="container">
+  <h1 class="display-2">Your Attendance</h1>
+</div>
+<br>
+{% if low_attd %}
+<div class="alert alert-danger" role="alert">
+    You have <strong>LOW ATTENDANCE</strong>
+</div>
+{% endif %}
+<br>
+<div class="container table-responsive">
+<table class="table table-bordered">
+    <tbody>
+    {% for key,v in attd.items %}
+    <tr>
+        {% if key != "None" %}
+            <td><b>{{ key }}</b></td>
+            <td>{{ v }}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+</body>
+</html>
